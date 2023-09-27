@@ -25,12 +25,20 @@ const SchoolList = (
       <h1 className="gillsans">List of High Schools</h1>
       <div className="divsearch">
         <input
+          className="lato"
           type="text"
           placeholder="School name..."
+          maxLength="50"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button type="button" onClick={() => setSearchQuery('')}>Clear</button>
+        <button
+          className="lato"
+          type="button"
+          onClick={() => setSearchQuery('')}
+        >
+          Clear
+        </button>
       </div>
       <ul>
         {filteredSchools.map((school) => (

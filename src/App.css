@@ -20,11 +20,11 @@
 .divnavbar {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(235, 90, 138); /* slight dark */
+  background-color: rgba(235, 90, 138, 0.801); /* slight dark */
   width: 100%;
   height: 3.4rem;
   padding-top: 8px;
-  padding-bottom: 8px;
+  padding-bottom: 25px;
   margin-bottom: 0;
 }
 
@@ -51,11 +51,20 @@ h1 {
   margin-bottom: 0;
 }
 
+h2 {
+  margin-left: 2%;
+}
+
 p {
   color: #fff;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.centered {
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 a {
@@ -115,12 +124,11 @@ li:nth-child(odd):hover {
 
 .divschoollist {
   background-color: rgb(252, 89, 143);
-  overflow-y: scroll;
 }
 
 .divhome {
   background-color: rgb(252, 89, 143); /* regular */
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .sitename {
@@ -135,7 +143,7 @@ li:nth-child(odd):hover {
 }
 
 .gillsans {
-  font-family: 'Gill Sans Std', sans-serif;
+  font-family: 'Gill Sans', sans-serif;
 }
 
 .divsearch {
@@ -143,4 +151,67 @@ li:nth-child(odd):hover {
   justify-content: space-evenly;
   width: 80%;
   margin: 8px auto 15px auto;
+}
+
+input {
+  font-size: 1.2rem;
+  border-radius: 4px;
+  border: 1px solid #646464;
+  width: 20rem;
+}
+
+button {
+  background-color: #fff;
+  color: #646464;
+  font-size: 1rem;
+  padding: 1px 12px;
+  border-radius: 4px;
+  border: 1px solid #646464;
+}
+
+button:hover {
+  background-color: #d1d1d1;
+  color: #646464;
+  font-weight: bold;
+}
+
+.divdetails {
+  height: 100vh;
+}
+
+.subtitles {
+  color: #ffb8e6;
+}
+
+.biggertext {
+  font-size: 2.5rem;
+}
+
+.grid {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.boroheading {
+  font-size: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.imgcard {
+  display: flex;
+  flex-direction: column;
+}
+
+.imagek:hover,
+.imagem:hover,
+.imagex:hover,
+.imageq:hover,
+.imager:hover {
+  background-color: #c592e2;
+  border-radius: 8px;
 }

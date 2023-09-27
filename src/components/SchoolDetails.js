@@ -18,54 +18,54 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
 
   const {
     location,
-    overviewParagraph,
-    phoneNumber,
-    schoolEmail,
+    overview_paragraph: overviewParagraph,
+    phone_number: phoneNumber,
+    school_email: schoolEmail,
     website,
-    totalStudents,
-    attendanceRate,
+    total_students: totalStudents,
+    attendance_rate: attendanceRate,
   } = selectedSchool;
 
   return (
-    <div>
+    <div className="divdetails">
       <Link to="/schools" onClick={clearSelectedSchool}>
         <strong><em>Back</em></strong>
       </Link>
       <h2>School Information:</h2>
       <p>
-        <strong>Location:</strong>
-        {' '}
-        {location}
-      </p>
-      <p>
-        <strong>Description:</strong>
-        {' '}
-        {overviewParagraph}
-      </p>
-      <p>
-        <strong>Phone Number:</strong>
-        {' '}
-        {phoneNumber}
-      </p>
-      <p>
-        <strong>Email:</strong>
-        {' '}
-        {schoolEmail}
-      </p>
-      <p>
-        <strong>Website:</strong>
-        {' '}
-        {website}
-      </p>
-      <p>
-        <strong>Total Students:</strong>
+        <strong className="subtitles biggertext">Total Students:</strong>
         {' '}
         {totalStudents}
       </p>
       <p>
-        <strong>Attendance Rate:</strong>
+        <strong className="subtitles biggertext">Attendance Rate:</strong>
         {' '}
         {attendanceRate}
+      </p>
+      <p>
+        <strong className="subtitles">Location:</strong>
+        {' '}
+        {location}
+      </p>
+      <p>
+        <strong className="subtitles">Description:</strong>
+        {' '}
+        {overviewParagraph}
+      </p>
+      <p>
+        <strong className="subtitles">Phone Number:</strong>
+        {' '}
+        {phoneNumber}
+      </p>
+      <p>
+        <strong className="subtitles">Email:</strong>
+        {' '}
+        {schoolEmail}
+      </p>
+      <p>
+        <strong className="subtitles">Website:</strong>
+        {' '}
+        {website}
       </p>
     </div>
   );
@@ -74,12 +74,12 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
 SchoolDetails.propTypes = {
   selectedSchool: PropTypes.shape({
     location: PropTypes.string,
-    overviewParagraph: PropTypes.string,
-    phoneNumber: PropTypes.string,
-    schoolEmail: PropTypes.string,
+    overview_paragraph: PropTypes.string,
+    phone_number: PropTypes.string,
+    school_email: PropTypes.string,
     website: PropTypes.string,
-    totalStudents: PropTypes.number,
-    attendanceRate: PropTypes.number,
+    total_students: PropTypes.number,
+    attendance_rate: PropTypes.number,
   }).isRequired,
   clearSelectedSchool: PropTypes.func.isRequired,
 };
