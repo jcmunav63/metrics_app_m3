@@ -18,54 +18,54 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
 
   const {
     location,
-    overview_paragraph,
-    phone_number,
-    school_email,
+    overview_paragraph: overviewParagraph,
+    phone_number: phoneNumber,
+    school_email: schoolEmail,
     website,
-    total_students,
-    attendance_rate,
+    total_students: totalStudents,
+    attendance_rate: attendanceRate,
   } = selectedSchool;
 
   return (
-    <div>
+    <div className="divdetails">
       <Link to="/schools" onClick={clearSelectedSchool}>
         <strong><em>Back</em></strong>
       </Link>
       <h2>School Information:</h2>
       <p>
-        <strong>Location:</strong>
+        <strong className="subtitles biggertext">Total Students:</strong>
+        {' '}
+        {totalStudents}
+      </p>
+      <p>
+        <strong className="subtitles biggertext">Attendance Rate:</strong>
+        {' '}
+        {attendanceRate}
+      </p>
+      <p>
+        <strong className="subtitles">Location:</strong>
         {' '}
         {location}
       </p>
       <p>
-        <strong>Description:</strong>
+        <strong className="subtitles">Description:</strong>
         {' '}
-        {overview_paragraph}
+        {overviewParagraph}
       </p>
       <p>
-        <strong>Phone Number:</strong>
+        <strong className="subtitles">Phone Number:</strong>
         {' '}
-        {phone_number}
+        {phoneNumber}
       </p>
       <p>
-        <strong>Email:</strong>
+        <strong className="subtitles">Email:</strong>
         {' '}
-        {school_email}
+        {schoolEmail}
       </p>
       <p>
-        <strong>Website:</strong>
+        <strong className="subtitles">Website:</strong>
         {' '}
         {website}
-      </p>
-      <p>
-        <strong>Total Students:</strong>
-        {' '}
-        {total_students}
-      </p>
-      <p>
-        <strong>Attendance Rate:</strong>
-        {' '}
-        {attendance_rate}
       </p>
     </div>
   );
