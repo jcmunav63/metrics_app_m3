@@ -18,12 +18,12 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
 
   const {
     location,
-    overviewParagraph,
-    phoneNumber,
-    schoolEmail,
+    overview_paragraph,
+    phone_number,
+    school_email,
     website,
-    totalStudents,
-    attendanceRate,
+    total_students,
+    attendance_rate,
   } = selectedSchool;
 
   return (
@@ -40,17 +40,17 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
       <p>
         <strong>Description:</strong>
         {' '}
-        {overviewParagraph}
+        {overview_paragraph}
       </p>
       <p>
         <strong>Phone Number:</strong>
         {' '}
-        {phoneNumber}
+        {phone_number}
       </p>
       <p>
         <strong>Email:</strong>
         {' '}
-        {schoolEmail}
+        {school_email}
       </p>
       <p>
         <strong>Website:</strong>
@@ -60,12 +60,12 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
       <p>
         <strong>Total Students:</strong>
         {' '}
-        {totalStudents}
+        {total_students}
       </p>
       <p>
         <strong>Attendance Rate:</strong>
         {' '}
-        {attendanceRate}
+        {attendance_rate}
       </p>
     </div>
   );
@@ -74,12 +74,12 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
 SchoolDetails.propTypes = {
   selectedSchool: PropTypes.shape({
     location: PropTypes.string,
-    overviewParagraph: PropTypes.string,
-    phoneNumber: PropTypes.string,
-    schoolEmail: PropTypes.string,
+    overview_paragraph: PropTypes.string,
+    phone_number: PropTypes.string,
+    school_email: PropTypes.string,
     website: PropTypes.string,
-    totalStudents: PropTypes.number,
-    attendanceRate: PropTypes.number,
+    total_students: PropTypes.number,
+    attendance_rate: PropTypes.number,
   }).isRequired,
   clearSelectedSchool: PropTypes.func.isRequired,
 };
