@@ -1,22 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SchoolList from './components/SchoolList';
 import SchoolDetails from './components/SchoolDetails';
+import Navbar from './components/Navbar';
 import './App.css';
+import Home from './components/Home';
 
 function App() {
   return (
     <>
-      <h1>Metrics App - New York City High Schools</h1>
-      <Home />
-      <Router>
+      <BrowserRouter>
+        <Navbar />
         <Routes>
-          <Route path="/" exact component={Home} />
-          <Route path="/schools" exact component={SchoolList} />
-          <Route path="/schools/:schoolId" component={SchoolDetails} />
+          <Route path="/" element={<Home />} />
+          <Route path="/schools" element={<SchoolList />} />
+          <Route path="/schools/:schoolId" element={<SchoolDetails />} />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </>
   );
 }

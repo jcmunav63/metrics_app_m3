@@ -1,37 +1,59 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { fetchSchools, selectSchool } from '../redux/actions/schools';
+import { fetchSchools, selectSchool, clearSelectedSchool } from '../redux/actions/schools';
 
-const SchoolList = ({ schools, fetchSchools, selectSchool }) => {
+const SchoolList = (
+  {
+    schools, fetchSchools, selectSchool, clearSelectedSchool,
+  },
+) => {
+  const [searchQuery, setSearchQuery] = useState('');
   // Fetch schools from Redux store when the component mounts
   useEffect(() => {
     fetchSchools();
   }, [fetchSchools]);
+
+  const filteredSchools = schools.filter(
+    (school) => school.school_name.toLowerCase()
+      .includes(searchQuery.toLowerCase()),
+  );
+
   return (
-    <div>
-      <h1>List of High Schools</h1>
+    <div className="divschoollist">
+      <h1 className="gillsans">List of High Schools</h1>
+      <div className="divsearch">
+        <input
+          type="text"
+          placeholder="School name..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <button type="button" onClick={() => setSearchQuery('')}>Clear</button>
+      </div>
       <ul>
-        {schools.map((school) => (
-          <li key={school.dbn}>
+        {filteredSchools.map((school) => (
+          <li key={school.dbn} className="lato">
             <Link to={`/schools/${school.dbn}`} onClick={() => selectSchool(school.dbn)}>
-              <strong>DBN:</strong>
-              {' '}
+              Borough:
+              {'  '}
+              <strong>{school.borough}</strong>
+              {'  '}
+              dbn:
+              {'  '}
               {school.dbn}
               <br />
-              <strong>School Name:</strong>
-              {' '}
-              {school.school_name}
-              <br />
-              <strong>Borough:</strong>
-              {' '}
-              {school.borough}
+              Name:
+              {'  '}
+              <strong>{school.school_name}</strong>
             </Link>
           </li>
         ))}
-        ;
       </ul>
+      <Link to="/schools" onClick={clearSelectedSchool}>
+        <strong>Back to List</strong>
+      </Link>
     </div>
   );
 };
@@ -46,10 +68,12 @@ SchoolList.propTypes = {
   ).isRequired,
   fetchSchools: PropTypes.func.isRequired,
   selectSchool: PropTypes.func.isRequired,
+  clearSelectedSchool: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   schools: state.schools.schools,
 });
 
-export default connect(mapStateToProps, { fetchSchools, selectSchool })(SchoolList);
+export default connect(mapStateToProps,
+  { fetchSchools, selectSchool, clearSelectedSchool })(SchoolList);

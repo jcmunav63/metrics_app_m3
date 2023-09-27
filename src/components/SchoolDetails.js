@@ -28,6 +28,9 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
 
   return (
     <div>
+      <Link to="/schools" onClick={clearSelectedSchool}>
+        <strong><em>Back</em></strong>
+      </Link>
       <h2>School Information:</h2>
       <p>
         <strong>Location:</strong>
@@ -64,9 +67,6 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
         {' '}
         {attendanceRate}
       </p>
-      <Link to="/schools" onClick={clearSelectedSchool}>
-        <strong>Back</strong>
-      </Link>
     </div>
   );
 };
