@@ -52,7 +52,8 @@ h1 {
 }
 
 h2 {
-  margin-left: 2%;
+  margin-left: 5%;
+  color: #fff;
 }
 
 p {
@@ -76,7 +77,7 @@ a {
   padding-top: 8px;
   margin-left: 0;
   padding-left: 0;
-  text-shadow: 3px 2px 2px rgb(73, 73, 73);
+  text-shadow: 1px 1px rgb(158, 158, 158);
 }
 
 a:hover,
@@ -97,7 +98,7 @@ a:active {
 ul {
   width: 90%;
   list-style: none;
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
   padding: 0;
 }
 
@@ -124,6 +125,7 @@ li:nth-child(odd):hover {
 
 .divschoollist {
   background-color: rgb(252, 89, 143);
+  overflow-y: auto;
 }
 
 .divhome {
@@ -136,6 +138,7 @@ li:nth-child(odd):hover {
   font-weight: 700;
   font-size: 2rem;
   letter-spacing: 0.1rem;
+  text-shadow: 1px 1px rgb(158, 158, 158);
 }
 
 .lato {
@@ -184,7 +187,7 @@ button:hover {
 }
 
 .biggertext {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .grid {
@@ -198,8 +201,11 @@ button:hover {
 
 .boroheading {
   font-size: 2rem;
+  letter-spacing: 0.2rem;
   text-align: center;
   color: #fff;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px rgb(158, 158, 158);
 }
 
 .imgcard {
@@ -212,6 +218,37 @@ button:hover {
 .imagex:hover,
 .imageq:hover,
 .imager:hover {
-  background-color: #c592e2;
+  background-color: #ffb8e6;
+
+  /* background-color: #c592e2; */
   border-radius: 8px;
+  cursor: pointer;
+}
+
+.styleless {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.by {
+  margin-left: 5%;
+}
+
+.acknowledge {
+  margin-right: 5%;
+  text-align: right;
+}
+
+.back {
+  margin-left: 5%;
 }

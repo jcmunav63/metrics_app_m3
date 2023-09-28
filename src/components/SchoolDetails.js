@@ -26,21 +26,27 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
     attendance_rate: attendanceRate,
   } = selectedSchool;
 
+  const calcRate = (attendanceRate * 100).toFixed(2);
+
   return (
     <div className="divdetails">
-      <Link to="/schools" onClick={clearSelectedSchool}>
+      <Link to="/schools" className="back" onClick={clearSelectedSchool}>
         <strong><em>Back</em></strong>
       </Link>
-      <h2>School Information:</h2>
+      <h2 className="gillsans">School Information:</h2>
       <p>
         <strong className="subtitles biggertext">Total Students:</strong>
         {' '}
-        {totalStudents}
+        <span className="biggertext">
+          {totalStudents}
+        </span>
       </p>
       <p>
         <strong className="subtitles biggertext">Attendance Rate:</strong>
         {' '}
-        {attendanceRate}
+        <span className="biggertext">
+          {calcRate}
+        </span>
       </p>
       <p>
         <strong className="subtitles">Location:</strong>
