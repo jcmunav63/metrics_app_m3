@@ -46,9 +46,14 @@ h1 {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
+  margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0;
+}
+
+.h1b {
+  font-size: 2rem;
 }
 
 h2 {
@@ -66,6 +71,10 @@ p {
 .centered {
   text-align: center;
   font-size: 1.2rem;
+}
+
+.under {
+  text-decoration: underline;
 }
 
 a {
@@ -100,6 +109,7 @@ ul {
   list-style: none;
   margin: 10px auto 0 auto;
   padding: 0;
+  height: 300px;
 }
 
 li {
@@ -123,8 +133,18 @@ li:nth-child(odd):hover {
   background-color: rgb(172, 61, 98); /* darker */
 }
 
+.white {
+  color: #fff;
+}
+
 .divschoollist {
   background-color: rgb(252, 89, 143);
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.container {
+  height: 50%;
   overflow-y: auto;
 }
 
@@ -179,7 +199,7 @@ button:hover {
 }
 
 .divdetails {
-  height: 100vh;
+  height: 100%;
 }
 
 .subtitles {
@@ -197,6 +217,10 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.schoolname {
+  font-size: 1.5rem;
 }
 
 .boroheading {
@@ -219,8 +243,6 @@ button:hover {
 .imageq:hover,
 .imager:hover {
   background-color: #ffb8e6;
-
-  /* background-color: #c592e2; */
   border-radius: 8px;
   cursor: pointer;
 }
@@ -252,3 +274,89 @@ button:hover {
 .back {
   margin-left: 5%;
 }
+
+/* MOBILE vERSION */
+@media only screen and (max-width: 375px) {
+  .divnavbar {
+    height: 2.4rem;
+    padding-top: 8px;
+    padding-bottom: 25px;
+    margin-bottom: 1rem;
+  }
+
+  .sitename {
+    padding-top: 0.3rem;
+    font-size: 1.2rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    width: 50px;
+    font-size: 0.9rem;
+    font-weight: normal;
+    padding-top: 8px;
+    margin-left: 0;
+    padding-left: 0;
+    text-shadow: 1px 1px rgb(158, 158, 158);
+  }
+
+  a:hover,
+  a:active {
+    color: #ffb8e6;
+    font-weight: 600;
+  }
+
+  .divider {
+    width: 5%;
+  }
+
+  h1 {
+    color: #fff;
+    width: 90%;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+
+  .h1b {
+    font-size: 1.2rem;
+  }
+
+  .biggertext {
+    font-size: 1.5rem;
+  }
+
+  .schoolname {
+    font-size: 1.2rem;
+  }
+
+  input {
+    font-size: 0.9rem;
+    width: 12rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 1px 10px;
+  }
+
+  .back {
+    margin-left: 5%;
+  }
+}
+
+/* TABLET vERSION */
+
+/* @media only screen and (min-width: 768px) {
+
+  .sitename {
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+  }
+} */

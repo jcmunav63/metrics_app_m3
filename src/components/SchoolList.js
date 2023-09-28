@@ -24,28 +24,29 @@ const SchoolList = (
   const selectedBorough = queryParams.get('borough');
 
   let filteredSchools = schools;
-  // Filter schools based on the selected borough
-  // filteredSchools = schools.filter(
-  //   (school) => school.borough.toLowerCase() === selectedBorough.toLowerCase(),
-  // );
+
   if (selectedBorough) {
     filteredSchools = schools.filter(
-      (school) => school.borough && school.borough.toLowerCase() === selectedBorough.toLowerCase(),
+      (school) => school.boro && school.boro.toLowerCase() === selectedBorough.toLowerCase(),
     );
-  } else if (searchQuery) {
+  }
+  if (searchQuery) {
     // Filter schools based on the search bar input
     filteredSchools = schools.filter(
       (school) => school.school_name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }
+  const filtered = filteredSchools.length;
 
   return (
     <div className="divschoollist">
       <h1 className="gillsans">
         List of High Schools&nbsp;
-        (
-        {total}
-        )
+        <span className="h1b">
+          (
+          {selectedBorough !== '' ? filtered : total}
+          )
+        </span>
       </h1>
       <div className="divsearch">
         <input
@@ -64,28 +65,36 @@ const SchoolList = (
           Clear
         </button>
       </div>
-      <Link to="/schools" className="back" onClick={clearSelectedSchool}>
-        <strong>Back to List</strong>
+      <Link to="/" className="back" onClick={clearSelectedSchool}>
+        <strong>Back Home</strong>
       </Link>
-      <ul>
-        {filteredSchools.map((school) => (
-          <li key={school.dbn} className="lato">
-            <Link to={`/schools/${school.dbn}`} onClick={() => selectSchool(school.dbn)}>
-              Borough:
-              {'  '}
-              <strong>{school.borough}</strong>
-              {'  '}
-              dbn:
-              {'  '}
-              {school.dbn}
-              <br />
-              Name:
-              {'  '}
-              <strong>{school.school_name}</strong>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <div className="container">
+        <ul>
+          {filteredSchools.map((school, index) => (
+            <li key={school.dbn} className="lato">
+              <span className="white lato">
+                {index + 1}
+              </span>
+              {' '}
+              <Link to={`/schools/${school.dbn}`} onClick={() => selectSchool(school.dbn)}>
+                Borough:
+                {'  ('}
+                <strong>{school.boro}</strong>
+                {') '}
+                <strong>{school.borough}</strong>
+                {'  '}
+                dbn:
+                {'  '}
+                {school.dbn}
+                <br />
+                Name:
+                {'  '}
+                <strong>{school.school_name}</strong>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="footer">
         <p className="by lato">by JC Muñoz</p>
         <p className="acknowledge">
@@ -108,10 +117,10 @@ SchoolList.propTypes = {
     PropTypes.shape({
       dbn: PropTypes.string.isRequired,
       school_name: PropTypes.string.isRequired,
+      boro: PropTypes.string.isRequired,
       borough: PropTypes.string,
     }),
   ).isRequired,
-  // selectedBorough: PropTypes.string.isRequired,
   fetchSchools: PropTypes.func.isRequired,
   selectSchool: PropTypes.func.isRequired,
   clearSelectedSchool: PropTypes.func.isRequired,

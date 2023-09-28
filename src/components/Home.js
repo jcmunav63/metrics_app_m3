@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import manhattan from '../assets/manhattan.png';
 import bronx from '../assets/bronx.png';
@@ -12,9 +12,14 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleBoroughClick = (boroughName) => {
-    setSelectedBorough(boroughName.toLowerCase());
-    navigate(`/schools?borough=${selectedBorough.toLowerCase()}`);
+    setSelectedBorough(boroughName); // .toLowerCase;
   };
+
+  useEffect(() => {
+    if (selectedBorough) {
+      navigate(`/schools?borough=${selectedBorough}`); // .toLowerCase()
+    }
+  }, [selectedBorough, navigate]);
 
   return (
     <div className="divhome">
@@ -24,10 +29,11 @@ const Home = () => {
           &nbsp;from New York City&apos;s High Schools
         </span>
       </p>
+      <p className="lato centered under">Click image:</p>
       <div className="grid">
         <div className="imgcard">
           <span className="boroheading gillsans">Manhattan</span>
-          <button className="styleless" type="button" onClick={() => handleBoroughClick('MANHATTAN')}>
+          <button className="styleless" type="button" onClick={() => handleBoroughClick('M')}>
             <img
               className="imagem"
               alt="Manhattan"
@@ -39,7 +45,7 @@ const Home = () => {
         </div>
         <div className="imgcard">
           <span className="boroheading gillsans">Bronx</span>
-          <button className="styleless" type="button" onClick={() => handleBoroughClick('BRONX')}>
+          <button className="styleless" type="button" onClick={() => handleBoroughClick('X')}>
             <img
               className="imagex"
               alt="Bronx"
@@ -51,7 +57,7 @@ const Home = () => {
         </div>
         <div className="imgcard">
           <span className="boroheading gillsans">Brooklyn</span>
-          <button className="styleless" type="button" onClick={() => handleBoroughClick('BROOKYLN')}>
+          <button className="styleless" type="button" onClick={() => handleBoroughClick('K')}>
             <img
               className="imagek"
               alt="Brooklyn"
@@ -63,7 +69,7 @@ const Home = () => {
         </div>
         <div className="imgcard">
           <span className="boroheading gillsans">Queens</span>
-          <button className="styleless" type="button" onClick={() => handleBoroughClick('QUEENS')}>
+          <button className="styleless" type="button" onClick={() => handleBoroughClick('Q')}>
             <img
               className="imageq"
               alt="Queens"
@@ -75,7 +81,7 @@ const Home = () => {
         </div>
         <div className="imgcard">
           <span className="boroheading gillsans">Staten Island</span>
-          <button className="styleless" type="button" onClick={() => handleBoroughClick('STATEN IS')}>
+          <button className="styleless" type="button" onClick={() => handleBoroughClick('R')}>
             <img
               className="imager"
               alt="Staten Island"
