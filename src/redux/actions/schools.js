@@ -7,12 +7,16 @@ export const FETCH_SCHOOLS_REQUEST = 'FETCH_SCHOOLS_REQUEST';
 export const FETCH_SCHOOLS_SUCCESS = 'FETCH_SCHOOLS_SUCCESS';
 export const FETCH_SCHOOLS_FAILURE = 'FETCH_SCHOOLS_FAILURE';
 
+const api = axios.create({
+  baseURL: 'https://data.cityofnewyork.us/resource/s3k6-pzi2.json',
+});
+
 const apiUrl = 'https://data.cityofnewyork.us/resource/s3k6-pzi2.json';
 
 export const fetchSchools = () => (dispatch) => {
   dispatch({ type: FETCH_SCHOOLS_REQUEST });
-  axios
-    .get(apiUrl)
+  api
+    .get({ apiUrl })
     .then((response) => {
       dispatch({
         type: FETCH_SCHOOLS_SUCCESS,
