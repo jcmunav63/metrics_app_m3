@@ -14,13 +14,13 @@
 }
 
 #root {
-  background-color: rgb(252, 89, 143); /* regular */
+  background-color: rgb(252, 89, 143);
 }
 
 .divnavbar {
   display: flex;
   justify-content: space-between;
-  background-color: rgba(235, 90, 138, 0.801); /* slight dark */
+  background-color: rgba(235, 90, 138, 0.801);
   width: 100%;
   height: 3.4rem;
   padding-top: 8px;
@@ -122,15 +122,15 @@ li {
 }
 
 li:hover {
-  background-color: rgb(172, 61, 98); /* darker */
+  background-color: rgb(172, 61, 98);
 }
 
 li:nth-child(odd) {
-  background-color: rgb(209, 81, 124); /* slight dark */
+  background-color: rgb(209, 81, 124);
 }
 
 li:nth-child(odd):hover {
-  background-color: rgb(172, 61, 98); /* darker */
+  background-color: rgb(172, 61, 98);
 }
 
 .white {
@@ -149,7 +149,7 @@ li:nth-child(odd):hover {
 }
 
 .divhome {
-  background-color: rgb(252, 89, 143); /* regular */
+  background-color: rgb(252, 89, 143);
   min-height: 100vh;
 }
 
@@ -350,13 +350,3 @@ button:hover {
     margin-left: 5%;
   }
 }
-
-/* TABLET vERSION */
-
-/* @media only screen and (min-width: 768px) {
-
-  .sitename {
-    font-size: 1.5rem;
-    letter-spacing: 0.1rem;
-  }
-} */

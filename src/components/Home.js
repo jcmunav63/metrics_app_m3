@@ -12,12 +12,12 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleBoroughClick = (boroughName) => {
-    setSelectedBorough(boroughName); // .toLowerCase;
+    setSelectedBorough(boroughName);
   };
 
   useEffect(() => {
     if (selectedBorough) {
-      navigate(`/schools?borough=${selectedBorough}`); // .toLowerCase()
+      navigate(`/schools?borough=${selectedBorough}`);
     }
   }, [selectedBorough, navigate]);
 

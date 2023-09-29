@@ -13,6 +13,7 @@ const SchoolList = (
 ) => {
   const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
+
   // Fetch schools from Redux store when the component mounts
   useEffect(() => {
     fetchSchools();
