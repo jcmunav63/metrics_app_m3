@@ -58,7 +58,7 @@
 Link to our deployed project (project is not deployed yet).
 
   Soon to be deployed...
-- https://
+- https://metrics-app-nyc-schools.onrender.com
 
 <!-- GETTING STARTED -->
 
@@ -133,7 +133,7 @@ To run linters checking, run the following command:
 🚀 Project deployment.
 
 Soon to be deployed...
-- https://
+- https://metrics-app-nyc-schools.onrender.com
 
 
 <!-- AUTHORS -->
