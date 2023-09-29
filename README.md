@@ -178,7 +178,13 @@ If you like this project, please support me with a like or a star.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-Thanks to my learning partners and the staff at Microverse.
+Thank you to my learning partners and the staff at Microverse.
+
+Thank you so much to the following organizations and creators:
+- Data for this app is obtained free from the NYC Open Data site. It shows the NYC 2017 DOE High School Directory data set. You can view the data origin site here: [link](https://data.cityofnewyork.us/Education/2017-DOE-High-School-Directory/s3k6-pzi2).
+
+- Design of this app is inspired on the Ballhead App by Nelson Sakwa
+You can view the original idea here: [link](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
