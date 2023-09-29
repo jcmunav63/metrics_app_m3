@@ -14,13 +14,13 @@
 }
 
 #root {
-  background-color: rgb(252, 89, 143); /* regular */
+  background-color: rgb(252, 89, 143);
 }
 
 .divnavbar {
   display: flex;
   justify-content: space-between;
-  background-color: rgba(235, 90, 138, 0.801); /* slight dark */
+  background-color: rgba(235, 90, 138, 0.801);
   width: 100%;
   height: 3.4rem;
   padding-top: 8px;
@@ -46,13 +46,19 @@ h1 {
   padding-top: 10px;
   padding-bottom: 10px;
   text-align: center;
+  margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 0;
 }
 
+.h1b {
+  font-size: 2rem;
+}
+
 h2 {
-  margin-left: 2%;
+  margin-left: 5%;
+  color: #fff;
 }
 
 p {
@@ -67,6 +73,10 @@ p {
   font-size: 1.2rem;
 }
 
+.under {
+  text-decoration: underline;
+}
+
 a {
   text-decoration: none;
   color: #fff;
@@ -76,7 +86,7 @@ a {
   padding-top: 8px;
   margin-left: 0;
   padding-left: 0;
-  text-shadow: 3px 2px 2px rgb(73, 73, 73);
+  text-shadow: 1px 1px rgb(158, 158, 158);
 }
 
 a:hover,
@@ -97,8 +107,9 @@ a:active {
 ul {
   width: 90%;
   list-style: none;
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
   padding: 0;
+  height: 300px;
 }
 
 li {
@@ -111,23 +122,34 @@ li {
 }
 
 li:hover {
-  background-color: rgb(172, 61, 98); /* darker */
+  background-color: rgb(172, 61, 98);
 }
 
 li:nth-child(odd) {
-  background-color: rgb(209, 81, 124); /* slight dark */
+  background-color: rgb(209, 81, 124);
 }
 
 li:nth-child(odd):hover {
-  background-color: rgb(172, 61, 98); /* darker */
+  background-color: rgb(172, 61, 98);
+}
+
+.white {
+  color: #fff;
 }
 
 .divschoollist {
   background-color: rgb(252, 89, 143);
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.container {
+  height: 50%;
+  overflow-y: auto;
 }
 
 .divhome {
-  background-color: rgb(252, 89, 143); /* regular */
+  background-color: rgb(252, 89, 143);
   min-height: 100vh;
 }
 
@@ -136,6 +158,7 @@ li:nth-child(odd):hover {
   font-weight: 700;
   font-size: 2rem;
   letter-spacing: 0.1rem;
+  text-shadow: 1px 1px rgb(158, 158, 158);
 }
 
 .lato {
@@ -176,7 +199,7 @@ button:hover {
 }
 
 .divdetails {
-  height: 100vh;
+  height: 100%;
 }
 
 .subtitles {
@@ -184,7 +207,7 @@ button:hover {
 }
 
 .biggertext {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .grid {
@@ -196,10 +219,17 @@ button:hover {
   justify-content: space-evenly;
 }
 
+.schoolname {
+  font-size: 1.5rem;
+}
+
 .boroheading {
   font-size: 2rem;
+  letter-spacing: 0.2rem;
   text-align: center;
   color: #fff;
+  margin-bottom: 8px;
+  text-shadow: 1px 1px rgb(158, 158, 158);
 }
 
 .imgcard {
@@ -212,6 +242,111 @@ button:hover {
 .imagex:hover,
 .imageq:hover,
 .imager:hover {
-  background-color: #c592e2;
+  background-color: #ffb8e6;
   border-radius: 8px;
+  cursor: pointer;
+}
+
+.styleless {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.by {
+  margin-left: 5%;
+}
+
+.acknowledge {
+  margin-right: 5%;
+  text-align: right;
+}
+
+.back {
+  margin-left: 5%;
+}
+
+/* MOBILE vERSION */
+@media only screen and (max-width: 375px) {
+  .divnavbar {
+    height: 2.4rem;
+    padding-top: 8px;
+    padding-bottom: 25px;
+    margin-bottom: 1rem;
+  }
+
+  .sitename {
+    padding-top: 0.3rem;
+    font-size: 1.2rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    width: 50px;
+    font-size: 0.9rem;
+    font-weight: normal;
+    padding-top: 8px;
+    margin-left: 0;
+    padding-left: 0;
+    text-shadow: 1px 1px rgb(158, 158, 158);
+  }
+
+  a:hover,
+  a:active {
+    color: #ffb8e6;
+    font-weight: 600;
+  }
+
+  .divider {
+    width: 5%;
+  }
+
+  h1 {
+    color: #fff;
+    width: 90%;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+  }
+
+  .h1b {
+    font-size: 1.2rem;
+  }
+
+  .biggertext {
+    font-size: 1.5rem;
+  }
+
+  .schoolname {
+    font-size: 1.2rem;
+  }
+
+  input {
+    font-size: 0.9rem;
+    width: 12rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 1px 10px;
+  }
+
+  .back {
+    margin-left: 5%;
+  }
 }

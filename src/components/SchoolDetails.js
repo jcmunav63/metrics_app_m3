@@ -17,7 +17,9 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
   }
 
   const {
+    school_name: schoolName,
     location,
+    dbn,
     overview_paragraph: overviewParagraph,
     phone_number: phoneNumber,
     school_email: schoolEmail,
@@ -26,21 +28,38 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
     attendance_rate: attendanceRate,
   } = selectedSchool;
 
+  const calcRate = (attendanceRate * 100).toFixed(1);
+
   return (
     <div className="divdetails">
-      <Link to="/schools" onClick={clearSelectedSchool}>
-        <strong><em>Back</em></strong>
+      <Link to="/schools" className="back" onClick={clearSelectedSchool}>
+        <strong><em>Back to List</em></strong>
       </Link>
-      <h2>School Information:</h2>
+      <h2 className="gillsans">School Information:</h2>
+      <p className="schoolname">
+        <strong>
+          {schoolName}
+          {' ('}
+          dbn:
+          {' '}
+          {dbn}
+          {') '}
+        </strong>
+      </p>
       <p>
         <strong className="subtitles biggertext">Total Students:</strong>
         {' '}
-        {totalStudents}
+        <span className="biggertext">
+          {totalStudents}
+        </span>
       </p>
       <p>
         <strong className="subtitles biggertext">Attendance Rate:</strong>
         {' '}
-        {attendanceRate}
+        <span className="biggertext">
+          {calcRate}
+        </span>
+        %
       </p>
       <p>
         <strong className="subtitles">Location:</strong>
@@ -67,13 +86,28 @@ const SchoolDetails = ({ selectedSchool, clearSelectedSchool }) => {
         {' '}
         {website}
       </p>
+      <div className="footer">
+        <p className="by lato">by JC Muñoz</p>
+        <p className="acknowledge">
+          Data from: NYC Open Data&nbsp;
+          <br />
+          <a
+            className="lato"
+            href="https://opendata.cityofnewyork.us/"
+          >
+            https://opendata.cityofnewyork.us/
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
 
 SchoolDetails.propTypes = {
   selectedSchool: PropTypes.shape({
+    school_name: PropTypes.string,
     location: PropTypes.string,
+    dbn: PropTypes.string,
     overview_paragraph: PropTypes.string,
     phone_number: PropTypes.string,
     school_email: PropTypes.string,

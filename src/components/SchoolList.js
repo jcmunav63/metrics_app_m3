@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { fetchSchools, selectSchool, clearSelectedSchool } from '../redux/actions/schools';
+import {
+  fetchSchools, selectSchool, clearSelectedSchool,
+} from '../redux/actions/schools';
 
 const SchoolList = (
   {
@@ -10,19 +12,43 @@ const SchoolList = (
   },
 ) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const location = useLocation();
+
   // Fetch schools from Redux store when the component mounts
   useEffect(() => {
     fetchSchools();
   }, [fetchSchools]);
 
-  const filteredSchools = schools.filter(
-    (school) => school.school_name.toLowerCase()
-      .includes(searchQuery.toLowerCase()),
-  );
+  const total = schools.length;
+
+  const queryParams = new URLSearchParams(location.search);
+  const selectedBorough = queryParams.get('borough');
+
+  let filteredSchools = schools;
+
+  if (selectedBorough) {
+    filteredSchools = schools.filter(
+      (school) => school.boro && school.boro.toLowerCase() === selectedBorough.toLowerCase(),
+    );
+  }
+  if (searchQuery) {
+    // Filter schools based on the search bar input
+    filteredSchools = schools.filter(
+      (school) => school.school_name.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
+  }
+  const filtered = filteredSchools.length;
 
   return (
     <div className="divschoollist">
-      <h1 className="gillsans">List of High Schools</h1>
+      <h1 className="gillsans">
+        List of High Schools&nbsp;
+        <span className="h1b">
+          (
+          {selectedBorough !== '' ? filtered : total}
+          )
+        </span>
+      </h1>
       <div className="divsearch">
         <input
           className="lato"
@@ -40,28 +66,49 @@ const SchoolList = (
           Clear
         </button>
       </div>
-      <ul>
-        {filteredSchools.map((school) => (
-          <li key={school.dbn} className="lato">
-            <Link to={`/schools/${school.dbn}`} onClick={() => selectSchool(school.dbn)}>
-              Borough:
-              {'  '}
-              <strong>{school.borough}</strong>
-              {'  '}
-              dbn:
-              {'  '}
-              {school.dbn}
-              <br />
-              Name:
-              {'  '}
-              <strong>{school.school_name}</strong>
-            </Link>
-          </li>
-        ))}
-      </ul>
-      <Link to="/schools" onClick={clearSelectedSchool}>
-        <strong>Back to List</strong>
+      <Link to="/" className="back" onClick={clearSelectedSchool}>
+        <strong>Back Home</strong>
       </Link>
+      <div className="container">
+        <ul>
+          {filteredSchools.map((school, index) => (
+            <li key={school.dbn} className="lato">
+              <span className="white lato">
+                {index + 1}
+              </span>
+              {' '}
+              <Link to={`/schools/${school.dbn}`} onClick={() => selectSchool(school.dbn)}>
+                Borough:
+                {'  ('}
+                <strong>{school.boro}</strong>
+                {') '}
+                <strong>{school.borough}</strong>
+                {'  '}
+                dbn:
+                {'  '}
+                {school.dbn}
+                <br />
+                Name:
+                {'  '}
+                <strong>{school.school_name}</strong>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="footer">
+        <p className="by lato">by JC Muñoz</p>
+        <p className="acknowledge">
+          Data from: NYC Open Data&nbsp;
+          <br />
+          <a
+            className="lato"
+            href="https://opendata.cityofnewyork.us/"
+          >
+            https://opendata.cityofnewyork.us/
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
@@ -71,7 +118,8 @@ SchoolList.propTypes = {
     PropTypes.shape({
       dbn: PropTypes.string.isRequired,
       school_name: PropTypes.string.isRequired,
-      borough: PropTypes.string.isRequired,
+      boro: PropTypes.string.isRequired,
+      borough: PropTypes.string,
     }),
   ).isRequired,
   fetchSchools: PropTypes.func.isRequired,
@@ -84,4 +132,6 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps,
-  { fetchSchools, selectSchool, clearSelectedSchool })(SchoolList);
+  {
+    fetchSchools, selectSchool, clearSelectedSchool,
+  })(SchoolList);
